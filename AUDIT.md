@@ -9,7 +9,8 @@ read. The application was **not executed**, and the live PostgreSQL schema was *
 database dump or migration history exists in the repository. Runtime-behaviour items are therefore
 verified by code reading rather than by reproduction, and are marked accordingly.
 
-**Total: 36 confirmed issues.**
+**Total: 36 confirmed issues — 34 open, 2 resolved** (issue 4, the empty root README; issue 21, the
+`.gitignore` rule that excluded `app/config/env.py`).
 
 | Category | Count |
 | -------- | ----: |
@@ -260,13 +261,16 @@ verified by code reading rather than by reproduction, and are marked accordingly
   model after a table exists is silently absent in the database.
 - **Recommendation:** Introduce Alembic and baseline the current schema.
 
-### 21. `.gitignore` excludes a source directory
+### 21. `.gitignore` excluded a source directory — ✅ RESOLVED
 
-- **Evidence:** The root [`.gitignore`](.gitignore) contains bare `config/`, `tests/` and `scripts/`
-  entries, which match `backend/app/config/`.
-- **Impact:** [`app/config/env.py`](backend/app/config/env.py) — required for the application to start —
-  would never be committed. Currently latent because only `.gitignore` and `README.md` are tracked.
-- **Recommendation:** Anchor those patterns (`/config/`) or remove them.
+- **Evidence:** The root [`.gitignore`](.gitignore) contained bare `config/`, `tests/` and `scripts/`
+  entries, which matched `backend/app/config/` at any depth.
+- **Impact:** [`app/config/env.py`](backend/app/config/env.py) — the dotenv loader every backend module
+  imports via `from app.config.env import env` — was excluded from version control. A fresh clone failed
+  with `ModuleNotFoundError: No module named 'app.config.env'`.
+- **Status:** **Resolved.** The three patterns are now anchored to the repository root (`/config/`,
+  `/scripts/`, `/tests/`) and `env.py` is tracked. Verified that `backend/.env`, `backend/storage/` and
+  `backend/logs/` remain ignored.
 
 ---
 

@@ -86,7 +86,7 @@ repository, it is marked **Not verified from the current implementation.**
 
 | Document | Contents |
 | -------- | -------- |
-| [../AUDIT.md](../AUDIT.md) | 36 confirmed issues with file-and-line evidence, grouped by category |
+| [../AUDIT.md](../AUDIT.md) | 36 confirmed issues (34 open) with file-and-line evidence, grouped by category |
 
 ---
 

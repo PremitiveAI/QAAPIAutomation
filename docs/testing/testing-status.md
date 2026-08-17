@@ -38,8 +38,11 @@ Five backend files match pytest's default collection pattern but are **applicati
 > construction — collection alone would hit the network and the database, and fail confusingly.
 >
 > If a suite is added later, configure `python_files` explicitly (e.g. `spec_*.py`) or place tests in a
-> directory with a narrower `testpaths`, and note that the root `.gitignore` currently contains a bare
-> `tests/` entry that would **exclude a `tests/` directory from git**. [AUDIT.md](../../AUDIT.md) issue 21.
+> directory with a narrower `testpaths`.
+>
+> The root `.gitignore` previously carried a bare `tests/` entry that would have excluded a nested
+> `tests/` directory from git. It is now anchored to `/tests/`, so a `backend/tests/` directory will be
+> tracked normally. [AUDIT.md](../../AUDIT.md) issue 21 — resolved.
 
 ## Manual verification only
 

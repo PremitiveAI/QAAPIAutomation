@@ -256,7 +256,7 @@ repository. Backend linting, formatting and type-checking are not configured.
 | Security | [docs/security/authentication-and-authorization.md](docs/security/authentication-and-authorization.md) |
 | Testing | [docs/testing/testing-status.md](docs/testing/testing-status.md) |
 | Troubleshooting | [docs/troubleshooting/common-issues.md](docs/troubleshooting/common-issues.md) |
-| **Code audit — 36 confirmed issues** | [AUDIT.md](AUDIT.md) |
+| **Code audit — 36 confirmed issues (34 open)** | [AUDIT.md](AUDIT.md) |
 
 ---
 
@@ -275,7 +275,7 @@ repository. Backend linting, formatting and type-checking are not configured.
 - **Uploaded files and test reports are served without authentication.** The `/storage` mount is exempt
   from token verification, so collections, environment files and reports are downloadable by anyone who
   can reach the backend. Do not expose the backend port beyond localhost.
-- 36 confirmed issues are catalogued with evidence in [AUDIT.md](AUDIT.md).
+- 36 confirmed issues are catalogued with evidence in [AUDIT.md](AUDIT.md); 34 remain open.
 
 ---
 
