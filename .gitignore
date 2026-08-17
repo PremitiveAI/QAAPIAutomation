@@ -129,9 +129,12 @@ coverage.xml
 storage/
 vector_db/
 qdrant_storage/
-config/
-scripts/
-tests/
+
+# Anchored to the repository root: the unanchored forms also matched nested
+# source directories such as backend/app/config/, excluding real source files.
+/config/
+/scripts/
+/tests/
 
 
 run.py
