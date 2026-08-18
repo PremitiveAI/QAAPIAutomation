@@ -142,4 +142,5 @@ run.py
 # Generated summary output (not tracked)
 temp/
 
-/backend/storage/*
+backend/storage/*
+frontend/package-lock.json
